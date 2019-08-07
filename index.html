@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel the World by Rail</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <!--css referene -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <!-- jQuery.js reference-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap references-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="text-center">Travel the World by Rail</h1>
+            <p class="text-center">Enjoy beautiful scenery and camaraderie while moving about freely and comfortably</p>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="card card-default">
+                    <div class="card-header">
+                        Current Train Offerings
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm table-striped" id="train-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Sign-Up Card-->
+            <div class="col-lg-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        Add Train
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Sign-up Form (note the various input "types")-->
+                        <form role="form">
+                            <div class="form-group row">
+                                <label for="name-input">Train Name:</label>
+                                <input class="form-control" id="name-input" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <label for="destination-input">Destination:</label>
+                                <input class="form-control" id="destination-input" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <label for="time-input">First Train Time (HH:mm - military time)</label>
+                                <input class="form-control" id="time-input" type="text">
+                            </div>
+                            <div class="form-group row">
+                                <label for="frequency-input">Frequency (min)</label>
+                                <input class="form-control" id="frequency-input"></input>
+                            </div>
+                            <button class="btn btn-default" id="add-train" type="text">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <script type="text/javascript" src="./assets/javascript/train.js"></script>
+
+</body>
+
+</html>

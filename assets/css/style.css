@@ -1,0 +1,21 @@
+#train-table th,
+td {
+    display: inline-block;
+    width: 16.575%;
+}
+
+div.jumbotron {
+    background-color: black;
+    color: white;
+}
+
+button {
+    background-color: rgb(11, 110, 192);
+    color: white;
+    margin-left: -5px;
+}
+
+div.card-header {
+    background-color: rgb(11, 110, 192);
+    color: white;
+}
