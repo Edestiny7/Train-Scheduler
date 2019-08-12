@@ -69,7 +69,7 @@ $(function() {
 
         // First Time (pushed back 1 year to make sure it comes before current time)
         let firstTimeConverted = moment(trainTime, "X").subtract(1, "years");
-        console.log("TRAIN TIME CONVERTED" + moment(firstTimeConverted, "X").format("HH:mm"));
+        console.log("TRAIN TIME CONVERTED: " + moment(firstTimeConverted, "X").format("HH:mm"));
 
         // Difference between the times
         let diffTime = moment.duration(moment().diff(moment(trainTime, "HH:mm")), 'milliseconds').asMinutes();
@@ -79,13 +79,13 @@ $(function() {
         let timeRemaining = trainFrequency - (Math.floor(diffTime) % trainFrequency);
         console.log("TIME REMAINING: " + timeRemaining);
 
-        // Minutes Until Train
-        let minutesUntillTrain = trainFrequency - timeRemaining;
-        console.log("MINUTES UNTILL TRAIN: " + minutesUntillTrain);
-
         // Next Train
         let nextTrain = diffTime > 0 ? moment().add(timeRemaining, 'minutes') : moment(trainTime, "HH:mm");
         console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
+
+        // Minutes Until Train
+        let minutesUntilTrain = Math.ceil(moment.duration(moment(nextTrain).diff(moment()), 'milliseconds').asMinutes());
+        console.log("MINUTES UNTIL TRAIN: " + minutesUntilTrain);
 
         // Create the new row
         let newRow = $("<tr>").append(
@@ -93,7 +93,7 @@ $(function() {
             $("<td>").text(trainDestination),
             $("<td>").text(trainFrequency),
             $("<td>").text(moment(nextTrain, "X").format("HH:mm A")),
-            $("<td>").text(minutesUntillTrain)
+            $("<td>").text(minutesUntilTrain)
         );
 
         // Append the new row to the table
