@@ -25,7 +25,7 @@ $(function() {
         let trainName = $("#name-input").val().trim();
         let trainDestination = $("#destination-input").val().trim();
         let trainFrequency = $("#frequency-input").val().trim();
-        let trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
+        let trainTime = $("#time-input").val().trim();
 
         // Initial Values
         let newTrain = {
@@ -64,15 +64,15 @@ $(function() {
         // Console Log Train Info
         console.log(trainName);
         console.log(trainDestination);
-        console.log("TRAIN TIME: " + moment(trainTime).format("HH:mm"));
+        console.log(trainTime);
         console.log(trainFrequency);
 
         // First Time (pushed back 1 year to make sure it comes before current time)
-        let firstTimeConverted = moment(trainTime).subtract(1, "years");
-        console.log("TRAIN TIME CONVERTED" + typeof(firstTimeConverted));
+        let firstTimeConverted = moment(trainTime, "X").subtract(1, "years");
+        console.log("TRAIN TIME CONVERTED" + moment(firstTimeConverted, "X").format("HH:mm"));
 
         // Difference between the times
-        let diffTime = moment.duration(moment().diff(moment(trainTime, "HH:mm")), 'mmilliseconds').asMinutes();
+        let diffTime = moment.duration(moment().diff(moment(trainTime, "HH:mm")), 'milliseconds').asMinutes();
         console.log("DIFFERENCE IN TIME: " + diffTime);
 
         // Time apart (remainder)
@@ -92,7 +92,7 @@ $(function() {
             $("<td>").text(trainName),
             $("<td>").text(trainDestination),
             $("<td>").text(trainFrequency),
-            $("<td>").text(nextTrain),
+            $("<td>").text(moment(nextTrain, "X").format("HH:mm A")),
             $("<td>").text(minutesUntillTrain)
         );
 
