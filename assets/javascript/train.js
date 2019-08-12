@@ -24,8 +24,8 @@ $(function() {
         // Don't forget to provide initial data to your Firebase db.
         let trainName = $("#name-input").val().trim();
         let trainDestination = $("#destination-input").val().trim();
-        let trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
         let trainFrequency = $("#frequency-input").val().trim();
+        let trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
 
         // Initial Values
         let newTrain = {
@@ -93,7 +93,7 @@ $(function() {
             $("<td>").text(trainDestination),
             $("<td>").text(trainFrequency),
             $("<td>").text(nextTrain),
-            $("<td>").text(trainMinutesTillTrain)
+            $("<td>").text(minutesUntillTrain)
         );
 
         // Append the new row to the table
